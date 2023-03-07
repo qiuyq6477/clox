@@ -8,4 +8,7 @@
 #include "chunk.h"
 #include "memory.h"
 
+#define DEBUG_TRACE_EXECUTION
+
+
 #endif
