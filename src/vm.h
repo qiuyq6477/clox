@@ -3,6 +3,7 @@
 
 #include "chunk.h"
 #include "value.h"
+#include "table.h"
 
 #define STACK_MAX 256
 
@@ -12,6 +13,7 @@ typedef struct {
   Value stack[STACK_MAX];
   Value* stackTop; //指针指向数组中栈顶元素的下一个元素位置
   Obj* objects;
+  Table strings;
 } VM;
 
 typedef enum {
