@@ -14,6 +14,7 @@ typedef struct {
   Value* stackTop; //指针指向数组中栈顶元素的下一个元素位置
   Obj* objects;
   Table strings;
+  Table globals;
 } VM;
 
 typedef enum {
