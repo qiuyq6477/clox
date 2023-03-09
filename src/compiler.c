@@ -208,6 +208,11 @@ static void addLocal(Token name) {
   local->depth = -1;
 }
 
+static bool identifiersEqual(Token* a, Token* b) {
+  if (a->length != b->length) return false;
+  return memcmp(a->start, b->start, a->length) == 0;
+}
+
 static int resolveLocal(Compiler* compiler, Token* name) {
   for (int i = compiler->localCount - 1; i >= 0; i--) {
     Local* local = &compiler->locals[i];
@@ -220,11 +225,6 @@ static int resolveLocal(Compiler* compiler, Token* name) {
   }
 
   return -1;
-}
-
-static bool identifiersEqual(Token* a, Token* b) {
-  if (a->length != b->length) return false;
-  return memcmp(a->start, b->start, a->length) == 0;
 }
 
 static void declareVariable() {
