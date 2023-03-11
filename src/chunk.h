@@ -30,10 +30,12 @@ typedef enum {
   OP_MULTIPLY,
   OP_DIVIDE,
 
-  OP_RETURN,
-
   OP_PRINT,
-
+  OP_JUMP_IF_FALSE,
+  OP_JUMP,
+  OP_LOOP,
+  
+  OP_RETURN,
 } OpCode;
 
 typedef struct {
