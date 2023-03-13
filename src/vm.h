@@ -5,11 +5,18 @@
 #include "value.h"
 #include "table.h"
 
-#define STACK_MAX 256
+#define FRAMES_MAX 64
+#define STACK_MAX (FRAMES_MAX * UINT8_COUNT)
 
 typedef struct {
-  Chunk* chunk;
-  uint8_t* ip;
+  ObjFunction* function; // 指向被调用函数
+  uint8_t* ip; // 返回地址
+  Value* slots;
+} CallFrame;
+
+typedef struct {
+  CallFrame frames[FRAMES_MAX];
+  int frameCount;
   Value stack[STACK_MAX];
   Value* stackTop; //指针指向数组中栈顶元素的下一个元素位置
   Obj* objects;
