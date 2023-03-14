@@ -10,7 +10,7 @@
 #define STACK_MAX (FRAMES_MAX * UINT8_COUNT)
 
 typedef struct {
-  ObjFunction* function; // 指向被调用函数
+  ObjClosure* closure; // 指向闭包
   uint8_t* ip; // 返回地址
   Value* slots;
 } CallFrame;
